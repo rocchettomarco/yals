@@ -1,2 +1,2 @@
-# yals
-yet another login system
+# YALS
+Yet Another Login System
