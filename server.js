@@ -5,7 +5,6 @@ const authConfig = require("./auth_config.json");
 
 const app = express();
 
-
 // Serve static assets from the /public folder
 app.use(express.static(join(__dirname, "public")));
 
