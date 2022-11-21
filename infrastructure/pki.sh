@@ -14,7 +14,8 @@ cp openssl.cnf PKI/conf
 echo -e "\nRoot CA - key"
 openssl ecparam -name prime256v1 -genkey -outform pem -out PKI/private/cakey.pem
 echo -e "\nRoot CA - cert"
-openssl req -new -x509 -days 365 -config PKI/conf/openssl.cnf -addext "subjectAltName=DNS:ca.yals.com" -addext "certificatePolicies=2.5.29.32.0" -extensions v3_ca -key PKI/private/cakey.pem -out PKI/certs/cacert.crt -outform pem -subj "/C=IT/ST=Italy/L=Verona/O=YALS Srl/OU=R&D/CN=ca.eaz.com/emailAddress=itsec@yals.com"
+#OID identifier: https://oidref.com/2.5.29.32
+openssl req -new -x509 -days 365 -addext "subjectAltName=DNS:ca.yals.com" -addext "certificatePolicies=2.5.29.32.0" -key PKI/private/cakey.pem -out ./cacert.crt -outform pem -subj "/C=IT/ST=Italy/L=Verona/O=YALS Srl/OU=R&D/CN=ca.yals.com/emailAddress=itsec@yals.com"
 
 #BACKEND
 echo -e "\n*.backend.yals.com - key"
